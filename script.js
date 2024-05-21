@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contadorVisualizacoes = document.getElementById('contadorVisualizacoes');
 
     let cartasViradas = [];
-    let visualizacoesRestantes = 3; // Máximo de 3 visualizações
+    let visualizacoesRestantes = 3; 
 
     function atualizarContador() {
         contadorVisualizacoes.textContent = `Visualizações restantes: ${visualizacoesRestantes}`;
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cartasViradas.length < 2 && !carta.classList.contains('virada') && !carta.classList.contains('pareado')) {
                 carta.classList.add('virada');
                 carta.textContent = carta.dataset.carta;
-                carta.classList.add(`pareado-${carta.dataset.carta}`); // Adicione a classe de cor
+                carta.classList.add(`pareado-${carta.dataset.carta}`); 
                 cartasViradas.push(carta);
 
                 if (cartasViradas.length === 2) {
@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 carta1.classList.remove('virada');
                 carta1.textContent = '';
-                carta1.classList.remove(`pareado-${carta1.dataset.carta}`); // Remova a classe de cor
+                carta1.classList.remove(`pareado-${carta1.dataset.carta}`); 
                 carta2.classList.remove('virada');
                 carta2.textContent = '';
-                carta2.classList.remove(`pareado-${carta2.dataset.carta}`); // Remova a classe de cor
+                carta2.classList.remove(`pareado-${carta2.dataset.carta}`); 
                 cartasViradas = [];
             }, 1000);
         }
@@ -57,14 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function reiniciarJogo() {
         cartasViradas = [];
-        visualizacoesRestantes = 3; // Reinicia o contador de visualizações
-        botaoVisualizar.disabled = false; // Reativa o botão visualizar
-        atualizarContador(); // Atualiza o contador na página
+        visualizacoesRestantes = 3; 
+        botaoVisualizar.disabled = false; 
+        atualizarContador(); 
         cartas.forEach(carta => {
             carta.classList.remove('virada');
             carta.classList.remove('pareado');
             carta.textContent = '';
-            carta.classList.remove(`pareado-${carta.dataset.carta}`); // Remova a classe de cor ao reiniciar
+            carta.classList.remove(`pareado-${carta.dataset.carta}`); 
         });
         embaralharCartas(); 
     }
@@ -72,15 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function revelarCartas() {
         if (visualizacoesRestantes > 0) {
             visualizacoesRestantes--;
-            atualizarContador(); // Atualiza o contador na página
+            atualizarContador(); 
             if (visualizacoesRestantes === 0) {
-                botaoVisualizar.disabled = true; // Desativa o botão após 3 usos
+                botaoVisualizar.disabled = true; 
             }
             cartas.forEach(carta => {
                 if (!carta.classList.contains('pareado')) {
                     carta.classList.add('virada');
                     carta.textContent = carta.dataset.carta;
-                    carta.classList.add(`pareado-${carta.dataset.carta}`); // Adicione a classe de cor ao revelar
+                    carta.classList.add(`pareado-${carta.dataset.carta}`); 
                 }
             });
             setTimeout(() => {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!carta.classList.contains('pareado')) {
                         carta.classList.remove('virada');
                         carta.textContent = '';
-                        carta.classList.remove(`pareado-${carta.dataset.carta}`); // Remova a classe de cor após um tempo
+                        carta.classList.remove(`pareado-${carta.dataset.carta}`); 
                     }
                 });
             }, 3000);
@@ -98,5 +98,5 @@ document.addEventListener('DOMContentLoaded', () => {
     botaoVisualizar.addEventListener('click', revelarCartas);
     botaoReiniciar.addEventListener('click', reiniciarJogo);
     embaralharCartas();
-    atualizarContador(); // Atualiza o contador na inicialização
+    atualizarContador(); 
 });
