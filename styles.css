@@ -8,9 +8,11 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
+    background-color: #272527;
 }
 
 h1 {
+    color: #f0f0f0;
     margin-bottom: 20px;
 }
 
@@ -43,3 +45,27 @@ h1 {
     font-size: 16px;
     cursor: pointer;
 }
+
+.visualizar {
+    margin-top: 30px;
+}
+
+.carta.pareado-A { background-color: #ff0000; } 
+.carta.pareado-B { background-color: #00ff00; } 
+.carta.pareado-C { background-color: #ff7300; }
+.carta.pareado-D { background-color: #0000ff; } 
+.carta.pareado-E { background-color: #fffb00; } 
+.carta.pareado-F { background-color: #d400ff; } 
+.carta.pareado-G { background-color: #ff009d; } 
+.carta.pareado-H { background-color: #00d9ff; } 
+.carta.pareado-I { background-color: #00ff9d; } 
+.carta.pareado-J { background-color: #ffffff; } 
+.carta.pareado-K { background-color: #4e4e4e; } 
+
+#contadorVisualizacoes {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #f0f0f0;
+}
+
+
